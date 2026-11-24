@@ -51,7 +51,7 @@ export function FlashcardPlayer({ quizTitle, questions }: FlashcardPlayerProps) 
         </div>
         <h2 className="font-display text-2xl font-bold text-ink">Session Finished!</h2>
         <p className="mt-1 text-sm text-mute">
-          You reviewed all {questions.length} cards in {quizTitle}.
+          You reviewed all {questions.length} card{questions.length === 1 ? "" : "s"} in {quizTitle}.
         </p>
         <div className="my-6 rounded-lg border border-rule bg-raised/40 p-5 text-sm text-ink">
           <p className="font-medium">Spaced repetition schedule updated.</p>

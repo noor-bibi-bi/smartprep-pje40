@@ -174,7 +174,9 @@ export function CreateQuizClient() {
         setTitle(data.title);
       }
 
-      toast.success(`Generated ${data.questions.length} questions! Review below.`);
+      toast.success(
+        `Generated ${data.questions.length} question${data.questions.length === 1 ? "" : "s"}! Review below.`,
+      );
     } catch (err: unknown) {
       console.error("Quiz generation error:", err);
       setGenerationError("Network problem — check your connection or switch to Offline Engine.");
@@ -321,7 +323,9 @@ export function CreateQuizClient() {
               className="w-full rounded-md border border-rule bg-raised p-4 text-sm text-ink placeholder:text-mute/70 focus:border-accent focus-visible:outline-2"
             />
             <div className="flex items-center justify-between text-xs text-mute">
-              <span>{pastedText.length} characters (minimum 40 required)</span>
+              <span>
+                {pastedText.length} character{pastedText.length === 1 ? "" : "s"} (minimum 40 required)
+              </span>
               {isShortWarning && (
                 <span className="flex items-center gap-1 text-warning font-medium">
                   <AlertTriangle size={12} />

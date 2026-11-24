@@ -37,7 +37,9 @@ export function MasteryDistributionChart({ counts }: MasteryDistributionChartPro
           <Layers size={18} className="text-accent" />
           <h3 className="font-display text-base font-bold text-ink">Spaced Repetition Mastery</h3>
         </div>
-        <span className="font-mono text-xs text-mute">{total} total cards</span>
+        <span className="font-mono text-xs text-mute">
+          {total} total card{total === 1 ? "" : "s"}
+        </span>
       </div>
 
       {/* Progress Bar Breakdown */}

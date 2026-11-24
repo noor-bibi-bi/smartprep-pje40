@@ -165,7 +165,9 @@ export function QuizListClient({ quizzes }: QuizListClientProps) {
                   <div className="mt-1 flex items-center gap-2 font-mono text-label uppercase text-mute flex-wrap">
                     <span>{dateLabel}</span>
                     <span>·</span>
-                    <span>{quiz.question_count} Qs</span>
+                    <span>
+                      {quiz.question_count} question{quiz.question_count === 1 ? "" : "s"}
+                    </span>
                     {quiz.attempt_count > 0 && (
                       <>
                         <span>·</span>

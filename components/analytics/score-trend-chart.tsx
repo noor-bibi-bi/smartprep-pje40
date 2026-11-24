@@ -76,7 +76,9 @@ export function ScoreTrendChart({ attempts }: ScoreTrendChartProps) {
           <TrendingUp size={18} className="text-accent" />
           <h3 className="font-display text-base font-bold text-ink">Score Performance Trend</h3>
         </div>
-        <span className="font-mono text-xs text-mute">Last {sorted.length} attempts</span>
+        <span className="font-mono text-xs text-mute">
+          Last {sorted.length} attempt{sorted.length === 1 ? "" : "s"}
+        </span>
       </div>
 
       <div className="relative w-full overflow-hidden">

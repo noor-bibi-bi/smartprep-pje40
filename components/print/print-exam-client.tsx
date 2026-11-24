@@ -94,7 +94,7 @@ export function PrintExamClient({
                 {quizTitle}
               </h1>
               <p className="text-xs text-neutral-600 mt-0.5">
-                Total Questions: {questions.length} · Multiple Choice Assessment
+                {questions.length} question{questions.length === 1 ? "" : "s"} · Multiple Choice Assessment
               </p>
             </div>
             <div className="border-2 border-black p-3 text-center min-w-[120px]">

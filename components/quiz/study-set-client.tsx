@@ -34,7 +34,7 @@ export function StudySetClient({
             {quizTitle}
           </h1>
           <p className="text-sm text-mute">
-            {questions.length} questions • Active Recall & Spaced Repetition
+            {questions.length} question{questions.length === 1 ? "" : "s"} • Active Recall & Spaced Repetition
           </p>
         </div>
 

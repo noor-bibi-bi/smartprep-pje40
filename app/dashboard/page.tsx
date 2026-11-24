@@ -6,7 +6,6 @@ import { QuizListClient, type QuizSummary } from "@/components/dashboard/quiz-li
 import { ScoreTrendChart, type AttemptDataPoint } from "@/components/analytics/score-trend-chart";
 import { MasteryDistributionChart, type MasteryCounts } from "@/components/analytics/mastery-distribution-chart";
 import { ButtonLink } from "@/components/ui/button";
-import { SignOutButton } from "@/components/auth/signout-button";
 import { redirect } from "next/navigation";
 import { OfflineSyncPanel } from "@/components/dashboard/offline-sync-panel";
 
@@ -149,7 +148,6 @@ export default async function DashboardPage() {
               <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
               {user.email}
             </span>
-            <SignOutButton />
           </div>
 
           <OfflineSyncPanel />
@@ -164,17 +162,17 @@ export default async function DashboardPage() {
       <div className="mb-8 grid grid-cols-2 gap-4 sm:grid-cols-5">
         <KpiCard
           icon={<BookOpen size={20} />}
-          label="Study Sets"
+          label={`Study Set${totalQuizzes === 1 ? "" : "s"}`}
           value={String(totalQuizzes)}
         />
         <KpiCard
           icon={<Layers size={20} />}
-          label="Questions"
+          label={`Question${totalQuestions === 1 ? "" : "s"}`}
           value={String(totalQuestions)}
         />
         <KpiCard
           icon={<Target size={20} />}
-          label="Quiz Attempts"
+          label={`Quiz Attempt${totalAttempts === 1 ? "" : "s"}`}
           value={String(totalAttempts)}
         />
         <KpiCard

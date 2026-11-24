@@ -68,7 +68,7 @@ export function QuestionEditor({ questions, onChange }: QuestionEditorProps) {
       <div className="flex items-center justify-between">
         <div>
           <h2 className="font-display text-xl font-bold text-ink">
-            Review & Edit Questions ({questions.length})
+            Review & Edit Question{questions.length === 1 ? "" : "s"} ({questions.length})
           </h2>
           <p className="text-sm text-mute">
             Refine questions, adjust options, or pick the correct answer before saving.
