@@ -7,7 +7,7 @@ export function SiteFooter({ isAuthenticated }: { isAuthenticated: boolean }) {
         <div>
           <p className="font-display text-lg text-ink">SmartPrep</p>
           <p className="mt-1 text-sm text-mute">
-            AI quizzes, spaced-repetition flashcards, and exam practice saved privately to your account.
+            AI-powered practice for your courses.
           </p>
         </div>
         <nav className="flex flex-wrap gap-x-6 gap-y-2 text-sm" aria-label="Footer">
@@ -30,8 +30,11 @@ export function SiteFooter({ isAuthenticated }: { isAuthenticated: boolean }) {
               </Link>
             </>
           )}
+          <Link href="/privacy" className="text-mute hover:text-accent">
+            Privacy notice
+          </Link>
           <a
-            href="https://console.groq.com"
+            href="https://groq.com"
             target="_blank"
             rel="noreferrer"
             className="text-mute hover:text-accent"

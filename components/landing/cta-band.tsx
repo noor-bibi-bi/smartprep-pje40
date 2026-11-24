@@ -12,7 +12,7 @@ export function CtaBand({ isAuthenticated }: { isAuthenticated: boolean }) {
         <p className="mx-auto mt-4 max-w-measure text-mute">
           {isAuthenticated
             ? "Build private study sets from PDFs or pasted notes, then practice with scored quizzes and SM-2 spaced-repetition flashcards."
-            : "A free account is required to create and save private study sets from PDFs or pasted notes, then practice with scored quizzes and SM-2 spaced-repetition flashcards."}
+            : "A free account is required to use SmartPrep. Save study sets privately in your own account, then practice with scored quizzes and SM-2 spaced-repetition flashcards."}
         </p>
         <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
           {isAuthenticated ? (

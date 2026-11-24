@@ -17,7 +17,7 @@ const STEPS = [
     icon: ClipboardCheck,
     number: "03",
     title: "Save, practice and review",
-    body: "A free account is required to save study sets privately. Take scored quizzes, review SM-2 flashcards, track progress in your dashboard, or print an exam sheet with its answer key.",
+    body: "Take scored quizzes, review SM-2 flashcards, track progress in your dashboard, or print an exam sheet with its answer key.",
   },
 ] as const;
 

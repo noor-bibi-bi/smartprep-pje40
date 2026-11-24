@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { SignupForm } from "@/components/auth/signup-form";
 
 export const metadata: Metadata = {
@@ -21,6 +22,13 @@ export default function SignupPage() {
         </div>
 
         <SignupForm />
+        <p className="mt-4 text-center text-xs text-mute">
+          By creating an account you agree to the{" "}
+          <Link href="/privacy" className="font-medium text-ink underline hover:text-ink/80">
+            Privacy notice
+          </Link>
+          .
+        </p>
       </div>
     </div>
   );

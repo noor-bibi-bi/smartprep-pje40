@@ -13,7 +13,7 @@ const SPEC_ROWS = [
   ["Flashcards", "SM-2 spaced-repetition reviews"],
   ["Dashboard", "Private account study sets, module tags, attempt and mastery analytics"],
   ["Printing", "Printable exam sheets with optional answer keys and explanations"],
-  ["Privacy", "Save study sets to your own free account; they stay private under Row-Level Security"],
+  ["Privacy", "Study-set records are isolated by Row-Level Security"],
 ] as const;
 
 export function SpecTable() {

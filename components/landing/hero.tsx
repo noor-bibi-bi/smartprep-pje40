@@ -16,8 +16,8 @@ export function Hero({ isAuthenticated }: { isAuthenticated: boolean }) {
           <p className="mt-6 max-w-measure text-body text-mute">
             Generate multiple-choice questions with explanations from a PDF or
             pasted notes, then edit them before saving. A free account is
-            required; your study sets stay private in your account under
-            Row-Level Security.
+            required to use SmartPrep; saved study sets stay private in your
+            own account.
           </p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
             {isAuthenticated ? (
@@ -43,7 +43,7 @@ export function Hero({ isAuthenticated }: { isAuthenticated: boolean }) {
             )}
           </div>
           <p className="mt-5 font-mono text-label uppercase text-mute">
-            Create a free account · PDFs parsed in memory, not stored
+            PDFs parsed in server memory · Original files not stored
           </p>
         </div>
 
@@ -57,45 +57,80 @@ export function Hero({ isAuthenticated }: { isAuthenticated: boolean }) {
 }
 
 function ExamSheetPreview() {
-  const rows = [
-    { n: "01", text: "Define the primary claim of the document", mark: "A" },
-    { n: "02", text: "Identify the method used in the study", mark: "B" },
-    { n: "03", text: "Explain the result in one sentence", mark: "C" },
+  const questions = [
+    {
+      n: "01",
+      text: "Which pigment absorbs light energy for photosynthesis?",
+      options: ["Chlorophyll", "Cellulose", "Glucose", "Oxygen"],
+      correctIndex: 0,
+    },
+    {
+      n: "02",
+      text: "Where does the Calvin cycle take place?",
+      options: ["Thylakoid membrane", "Stroma", "Cytoplasm", "Mitochondrial matrix"],
+      correctIndex: 1,
+    },
+    {
+      n: "03",
+      text: "Which gas is released during photosynthesis?",
+      options: ["Carbon dioxide", "Nitrogen", "Oxygen", "Methane"],
+      correctIndex: 2,
+    },
   ];
 
   return (
-    <div
-      aria-hidden
+    <section
+      aria-label="Sample photosynthesis quiz"
       className="animate-slide-up rounded-md border border-rule bg-raised shadow-float"
     >
       <div className="flex items-center justify-between border-b border-rule px-5 py-4">
         <span className="font-mono text-label uppercase text-mute">
-          Multiple-choice exam
+          Sample
         </span>
         <span className="font-mono text-label uppercase text-accent">Easy</span>
       </div>
       <ol>
-        {rows.map((row) => (
+        {questions.map((question) => (
           <li
-            key={row.n}
-            className="flex items-center gap-4 border-b border-rule-soft px-5 py-4 last:border-b-0"
+            key={question.n}
+            className="border-b border-rule-soft px-5 py-4 last:border-b-0"
           >
-            <span className="font-mono text-sm text-mute tabular">{row.n}</span>
-            <span className="flex-1 text-sm text-ink">{row.text}</span>
-            <span className="flex h-7 w-7 items-center justify-center rounded-sm border border-rule font-mono text-xs text-mute">
-              {row.mark}
-            </span>
+            <div className="flex items-start gap-3">
+              <span className="font-mono text-sm text-mute tabular">{question.n}</span>
+              <p className="flex-1 text-sm text-ink">{question.text}</p>
+            </div>
+            <ul className="mt-3 grid gap-1.5 sm:grid-cols-2">
+              {question.options.map((option, index) => {
+                const isCorrect = index === question.correctIndex;
+
+                return (
+                  <li
+                    key={option}
+                    className={`flex items-center gap-2 rounded-sm border px-2 py-1.5 text-xs ${
+                      isCorrect
+                        ? "border-success/40 bg-success/10 text-ink"
+                        : "border-rule-soft text-mute"
+                    }`}
+                  >
+                    <span className="font-mono">
+                      {String.fromCharCode(65 + index)}
+                    </span>
+                    <span className="flex-1">{option}</span>
+                    {isCorrect && (
+                      <span className="font-semibold text-success">Correct</span>
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
           </li>
         ))}
       </ol>
-      <div className="px-5 py-4">
-        <div className="h-1.5 w-full overflow-hidden rounded-sm bg-rule-soft">
-          <div className="h-full w-2/3 bg-accent" />
-        </div>
-        <p className="mt-3 font-mono text-label uppercase text-mute">
-          Score 7 / 10 · review with explanations
+      <div className="px-5 py-3">
+        <p className="font-mono text-label uppercase text-mute">
+          Correct answers marked
         </p>
       </div>
-    </div>
+    </section>
   );
 }
