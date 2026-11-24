@@ -1,4 +1,4 @@
-# Style — PDF to Quiz
+# Style — SmartPrep
 
 > Decision: when asked to choose, the human answered "pick the best". The direction
 > whose ancestor best matches the product domain was chosen and the other two recorded

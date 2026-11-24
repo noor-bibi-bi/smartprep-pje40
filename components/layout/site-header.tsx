@@ -59,7 +59,7 @@ export async function SiteHeader() {
                 Sign in
               </ButtonLink>
               <ButtonLink href="/signup" size="md" className="px-2.5 sm:px-4">
-                Get started
+                Create free account
               </ButtonLink>
             </>
           )}

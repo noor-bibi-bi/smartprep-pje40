@@ -2,7 +2,7 @@
 
 SmartPrep is a full-stack study application that converts PDF documents and pasted lecture notes into editable quizzes, interactive assessments, and spaced-repetition flashcards.
 
-It extends the public [PDF-to-Quiz](https://github.com/Nour-yahyaoui/pdf-to-quiz) baseline with account-based access, persistent study libraries, mastery analytics, and print-ready exam sheets.
+It extends the open-source baseline with account-based access, persistent study libraries, mastery analytics, and print-ready exam sheets.
 
 ## Features
 

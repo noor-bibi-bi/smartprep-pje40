@@ -4,20 +4,20 @@ const STEPS = [
   {
     icon: FileUp,
     number: "01",
-    title: "Drop in a PDF",
-    body: "Drag and drop any PDF up to 4.5 MB directly in the browser. The file is parsed in memory and discarded — it is never written to storage.",
+    title: "Add your study material",
+    body: "Upload a PDF up to 4.5 MB or paste notes. PDFs are parsed in server memory and are not stored.",
   },
   {
     icon: BrainCircuit,
     number: "02",
-    title: "The model writes the exam",
-    body: "Groq's Llama 3.3 70B model reads the document and produces exactly ten questions at your chosen difficulty, each with four answers and an explanation.",
+    title: "Generate and edit questions",
+    body: "Choose 3–20 multiple-choice questions and an easy, medium or hard level. Groq AI generates questions with explanations, with an offline generator available as a fallback.",
   },
   {
     icon: ClipboardCheck,
     number: "03",
-    title: "Take it and get marked",
-    body: "Answer one question at a time, submit, and receive your score immediately alongside a full review of every question — right or wrong.",
+    title: "Save, practice and review",
+    body: "A free account is required to save study sets privately. Take scored quizzes, review SM-2 flashcards, track progress in your dashboard, or print an exam sheet with its answer key.",
   },
 ] as const;
 

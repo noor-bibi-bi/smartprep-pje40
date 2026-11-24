@@ -2,10 +2,17 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
+import { createClient } from "@/lib/supabase/server";
 
 export const metadata: Metadata = { title: "Page not found" };
 
-export default function NotFound() {
+export default async function NotFound() {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  const isAuthenticated = Boolean(user);
+
   return (
     <>
       <SiteHeader />
@@ -16,16 +23,33 @@ export default function NotFound() {
             This sheet has gone missing
           </h1>
           <p className="mt-5 text-body text-mute">
-            The page you are looking for does not exist. Quizzes are reachable only
-            through their unique link or the history saved on this device.
+            The page you are looking for does not exist. Sign in to access your
+            private study sets and quiz history.
           </p>
           <div className="mt-9 flex flex-wrap gap-3">
-            <Link
-              href="/dashboard"
-              className="inline-flex min-h-11 items-center rounded-sm bg-accent px-6 py-3 font-medium text-white hover:bg-accent-deep dark:text-ink"
-            >
-              Go to dashboard
-            </Link>
+            {isAuthenticated ? (
+              <Link
+                href="/dashboard"
+                className="inline-flex min-h-11 items-center rounded-sm bg-accent px-6 py-3 font-medium text-white hover:bg-accent-deep dark:text-ink"
+              >
+                Go to dashboard
+              </Link>
+            ) : (
+              <>
+                <Link
+                  href="/signup"
+                  className="inline-flex min-h-11 items-center rounded-sm bg-accent px-6 py-3 font-medium text-white hover:bg-accent-deep dark:text-ink"
+                >
+                  Create free account
+                </Link>
+                <Link
+                  href="/login"
+                  className="inline-flex min-h-11 items-center rounded-sm border border-rule bg-raised px-6 py-3 font-medium text-ink hover:border-accent hover:text-accent"
+                >
+                  Sign in
+                </Link>
+              </>
+            )}
             <Link
               href="/"
               className="inline-flex min-h-11 items-center rounded-sm border border-rule bg-raised px-6 py-3 font-medium text-ink hover:border-accent hover:text-accent"
@@ -35,7 +59,7 @@ export default function NotFound() {
           </div>
         </div>
       </main>
-      <SiteFooter />
+      <SiteFooter isAuthenticated={isAuthenticated} />
     </>
   );
 }

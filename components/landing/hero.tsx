@@ -1,7 +1,7 @@
 import { ArrowRight, Zap } from "lucide-react";
 import { ButtonLink } from "@/components/ui/button";
 
-export function Hero() {
+export function Hero({ isAuthenticated }: { isAuthenticated: boolean }) {
   return (
     <section className="container-sheet pt-14 sm:pt-20 lg:pt-24">
       <div className="grid gap-12 lg:grid-cols-12 lg:gap-8">
@@ -11,26 +11,39 @@ export function Hero() {
             Powered by Groq AI
           </p>
           <h1 className="text-display font-normal text-ink">
-            Turn any PDF into a quiz in under 5 seconds
+            Turn PDFs and notes into study sets in seconds
           </h1>
           <p className="mt-6 max-w-measure text-body text-mute">
-            Upload lecture notes, a research paper or any document up to
-            4.5&nbsp;MB.
-            The reader extracts the text, the model writes ten multiple-choice
-            questions, and you get a marked exam sheet with explanations — saved
-            without any account.
+            Generate multiple-choice questions with explanations from a PDF or
+            pasted notes, then edit them before saving. A free account is
+            required; your study sets stay private in your account under
+            Row-Level Security.
           </p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <ButtonLink href="/create" size="lg">
-              Build your first quiz
-              <ArrowRight size={18} aria-hidden />
-            </ButtonLink>
-            <ButtonLink href="/dashboard" variant="secondary" size="lg">
-              Browse your quizzes
-            </ButtonLink>
+            {isAuthenticated ? (
+              <>
+                <ButtonLink href="/dashboard" size="lg">
+                  Go to dashboard
+                  <ArrowRight size={18} aria-hidden />
+                </ButtonLink>
+                <ButtonLink href="/create" variant="secondary" size="lg">
+                  Create a study set
+                </ButtonLink>
+              </>
+            ) : (
+              <>
+                <ButtonLink href="/signup" size="lg">
+                  Create free account
+                  <ArrowRight size={18} aria-hidden />
+                </ButtonLink>
+                <ButtonLink href="/login" variant="secondary" size="lg">
+                  Sign in
+                </ButtonLink>
+              </>
+            )}
           </div>
           <p className="mt-5 font-mono text-label uppercase text-mute">
-            No account needed · Free to try · PDFs are never stored
+            Create a free account · PDFs parsed in memory, not stored
           </p>
         </div>
 
@@ -57,7 +70,7 @@ function ExamSheetPreview() {
     >
       <div className="flex items-center justify-between border-b border-rule px-5 py-4">
         <span className="font-mono text-label uppercase text-mute">
-          Exam sheet · 10 questions
+          Multiple-choice exam
         </span>
         <span className="font-mono text-label uppercase text-accent">Easy</span>
       </div>

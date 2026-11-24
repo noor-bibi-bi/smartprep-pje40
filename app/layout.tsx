@@ -7,12 +7,19 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "SmartPrep — Turn any PDF into a quiz in seconds",
+    default: "SmartPrep — Private AI study sets, quizzes, and flashcards",
     template: "%s · SmartPrep",
   },
   description:
-    "Upload lecture slides or paste study notes and SmartPrep instantly generates multiple-choice quizzes, flashcards, and spaced repetition study sets — powered by Groq AI.",
+    "A free account is required to create private study sets from PDFs or pasted notes. Generate and edit AI multiple-choice questions, practice with scored quizzes and SM-2 flashcards, track analytics, and print exam sheets with answer keys.",
   applicationName: "SmartPrep",
+  openGraph: {
+    title: "SmartPrep — Private AI study sets, quizzes, and flashcards",
+    description:
+      "Create private study sets from PDFs or pasted notes, practice with AI-generated quizzes and SM-2 flashcards, track progress, and print exam sheets with answer keys.",
+    siteName: "SmartPrep",
+    type: "website",
+  },
   robots: { index: true, follow: true },
 };
 

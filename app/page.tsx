@@ -5,17 +5,24 @@ import { Hero } from "@/components/landing/hero";
 import { HowItWorks } from "@/components/landing/how-it-works";
 import { SpecTable } from "@/components/landing/spec-table";
 import { CtaBand } from "@/components/landing/cta-band";
+import { createClient } from "@/lib/supabase/server";
 
-export default function LandingPage() {
+export default async function LandingPage() {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  const isAuthenticated = Boolean(user);
+
   return (
     <>
       <main>
-        <Hero />
+        <Hero isAuthenticated={isAuthenticated} />
         <HowItWorks />
         <SpecTable />
-        <CtaBand />
+        <CtaBand isAuthenticated={isAuthenticated} />
       </main>
-      <SiteFooter />
+      <SiteFooter isAuthenticated={isAuthenticated} />
     </>
   );
 }

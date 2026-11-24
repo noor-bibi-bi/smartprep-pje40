@@ -5,13 +5,15 @@ import { Check } from "lucide-react";
  * exactly what the product does — real data, no invented statistics.
  */
 const SPEC_ROWS = [
-  ["Input", "One PDF, max 4.5 MB, parsed entirely in server memory"],
-  ["Output", "10 multiple-choice questions, 4 options each"],
-  ["Difficulty", "Easy, medium or hard — chosen before generation"],
-  ["Model", "Llama 3.3 70B Versatile on Groq, instant fallback model"],
-  ["Review", "Per-question marking with an AI-written explanation"],
-  ["Storage", "Quizzes remembered in this browser, content stored behind RLS"],
-  ["Privacy", "No account required; Row-Level Security on every table; PDFs never stored"],
+  ["Input", "PDF (up to 4.5 MB) or pasted notes; PDFs are parsed in server memory, not stored"],
+  ["Output", "Choose 3–20 multiple-choice questions, with four options each"],
+  ["Difficulty", "Easy, medium or hard"],
+  ["Generation", "Groq GPT-OSS 120B, GPT-OSS 20B fallback, or the offline generator"],
+  ["Review", "Edit questions before saving; take scored quizzes with explanations"],
+  ["Flashcards", "SM-2 spaced-repetition reviews"],
+  ["Dashboard", "Private account study sets, module tags, attempt and mastery analytics"],
+  ["Printing", "Printable exam sheets with optional answer keys and explanations"],
+  ["Privacy", "Save study sets to your own free account; they stay private under Row-Level Security"],
 ] as const;
 
 export function SpecTable() {

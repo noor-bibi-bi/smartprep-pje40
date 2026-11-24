@@ -7,10 +7,10 @@ export function EmptyState() {
       <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-sm border border-rule bg-paper text-accent">
         <FileUp size={24} aria-hidden />
       </span>
-      <h2 className="mt-6 font-display text-heading text-ink">No quizzes on this device yet</h2>
+      <h2 className="mt-6 font-display text-heading text-ink">No study sets yet</h2>
       <p className="mx-auto mt-2 max-w-sm text-mute">
-        Upload your first PDF and the exam sheet will be remembered in this browser,
-        ready to retake whenever you need it.
+        Create your first study set from a PDF or pasted notes. Your saved sets
+        are private to your account under Row-Level Security.
       </p>
       <div className="mt-8 flex justify-center">
         <ButtonLink href="/create" size="lg">
